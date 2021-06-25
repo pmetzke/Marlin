@@ -617,8 +617,10 @@
  * Default Axis Steps Per Unit (steps/mm)
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
+ * Default was define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
+ * Modified 05/30/2021 for E3D V6 Titan
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 100 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 418.545 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -783,8 +785,8 @@
  *      O-- FRONT --+
  *    (0,0)
  */
-#define X_PROBE_OFFSET_FROM_EXTRUDER -33  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -47  // Y offset: -front +behind [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -25  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -3  // Y offset: -front +behind [the nozzle]
 #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 // Certain types of probes need to stay away from edges
@@ -862,7 +864,7 @@
 // @section extruder
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
-#define INVERT_E0_DIR true
+#define INVERT_E0_DIR false
 #define INVERT_E1_DIR false
 #define INVERT_E2_DIR false
 #define INVERT_E3_DIR false
@@ -885,17 +887,17 @@
 
 // @section machine
 
-// The size of the print bed
-#define X_BED_SIZE 200
+// The size of the print bed - original X size was 200mm, modified for E3D V6 Titan upgrade
+#define X_BED_SIZE 190
 #define Y_BED_SIZE 200
 
-// Travel limits (mm) after homing, corresponding to endstop positions.
+// Travel limits (mm) after homing, corresponding to endstop positions. Orig Z MAX POS was 180, change with E3D V6 Titan Upgrade
 #define X_MIN_POS 0
 #define Y_MIN_POS 0
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 180
+#define Z_MAX_POS 143
 
 /**
  * Software Endstops
